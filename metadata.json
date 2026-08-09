@@ -1,0 +1,6 @@
+{
+  "name": "Correlativas FCV-UNR",
+  "description": "Sistema interactivo de correlatividades y seguimiento académico para la carrera de Medicina Veterinaria (Plan 2009) FCV-UNR.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

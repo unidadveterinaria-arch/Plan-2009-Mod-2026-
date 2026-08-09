@@ -1,0 +1,20 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /leaderboard_entries/{entryId} {
+      // Anyone can view the leaderboard scores
+      allow read: if true;
+      // Anyone can submit a score entry with valid fields
+      allow create: if request.resource.data.keys().hasAll(['playerName', 'score', 'difficulty', 'createdAt'])
+                   && request.resource.data.playerName is string
+                   && request.resource.data.playerName.size() > 0
+                   && request.resource.data.playerName.size() <= 25
+                   && request.resource.data.score is number
+                   && request.resource.data.score >= 0
+                   && request.resource.data.difficulty in ['easy', 'normal', 'hard', 'extreme'];
+      // No edit/delete permissions
+      allow update, delete: if false;
+    }
+  }
+}

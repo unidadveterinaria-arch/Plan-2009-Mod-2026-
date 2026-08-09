@@ -1,0 +1,29 @@
+{
+  "entities": {
+    "LeaderboardEntry": {
+      "title": "LeaderboardEntry",
+      "description": "High score entries submitted by players for Flappy Unidad",
+      "type": "object",
+      "properties": {
+        "playerName": {
+          "type": "string",
+          "description": "Nickname or name of the student/player"
+        },
+        "score": {
+          "type": "number",
+          "description": "Score achieved in Flappy Unidad"
+        },
+        "difficulty": {
+          "type": "string",
+          "description": "Difficulty level: easy, normal, hard, extreme"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO timestamp when score was submitted"
+        }
+      },
+      "required": ["playerName", "score", "difficulty", "createdAt"]
+    }
+  }
+}
